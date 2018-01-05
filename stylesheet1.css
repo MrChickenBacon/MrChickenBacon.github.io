@@ -1,4 +1,4 @@
-﻿
+
 body {
     background-repeat: no-repeat;
     margin: 0;
@@ -10,6 +10,11 @@ body {
     overflow: hidden;
 }
 
+div1 {
+    position: absolute;
+    height: 50%;
+    right: 200px;
+}
 
 .wrapper {
     background-color: green;
