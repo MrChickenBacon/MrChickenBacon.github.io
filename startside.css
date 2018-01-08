@@ -27,7 +27,7 @@ body {
 
 h1 {
     padding-bottom: 250px;
-    font-family: 'toxigenesis bd';
+    font-family: 'Trebuchet MS';
     height: 100%;
     flex: none;
     text-align: center;
@@ -35,7 +35,7 @@ h1 {
 
 h2 {
     padding-top: 250px;
-    font-family: 'toxigenesis bd';
+    font-family: 'Trebuchet MS';
     height: 100%;
     flex: none;
     text-align: center;
@@ -44,9 +44,4 @@ h2 {
 div2 {
     padding-top: 900px;
     position: absolute;
-}
-
-@font-face {
-    font-family: 'toxigenesis bd';
-    src: url('toxigenesis bd.ttf') format('truetype');
 }
