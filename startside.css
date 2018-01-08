@@ -1,6 +1,7 @@
 body {
     background-image: url(media/bak.png);
-    padding-top: 300px;
+    padding-top: 100px;
+    padding-left: 300px;
     background-repeat: no-repeat;
     margin: 0;
     display: flex;
@@ -42,6 +43,7 @@ h2 {
 }
 
 div2 {
-    padding-top: 900px;
-    position: absolute;
+    flex: none;
+    padding-left: 300px;
+    padding-top: 750px;
 }
