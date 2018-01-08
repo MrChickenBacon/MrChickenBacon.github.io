@@ -1,4 +1,4 @@
-﻿body {
+body {
     background-image: url(media/bak.png);
     padding-top: 300px;
     background-repeat: no-repeat;
@@ -39,6 +39,11 @@ h2 {
     height: 100%;
     flex: none;
     text-align: center;
+}
+
+div2 {
+    padding-top: 900px;
+    position: absolute;
 }
 
 @font-face {
