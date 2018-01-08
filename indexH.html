@@ -1,34 +1,88 @@
-﻿<html>
+<html>
 <head>
     <title>Det kule spillet</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="stylesheet1.css" />
     <audio id="audio" src="music/flaks.mp3"></audio>
     <audio id="audio1" src="music/hit.mp3"></audio>
-   
+
 </head>
 
 <body>
+    <script language="javascript" type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script language="javascript" type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js"></script>
+    <script language="javascript" type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase-firestore.js"></script>
 
     <h1>Flappy burd</h1>
     <div id="info"></div>
     <a id="gamestop" href="javascript:location.reload()" style="display: none;">Start på nytt</a>
-  
 
-   
 
-    <div class="wrapper"> Game score 
+    <div1>
+        Skriv inn navn:
+        <input type="text" onkeydown="if (event.keyCode === 13) setname(this);" />
+        <br />
+        <br />
+        <div2>Top 10</div2>
+        <br />
+    </div1>
+    <br />
+
+    <div1 id="score">Laster inn data...</div1>
+
+    <div class="wrapper">
+        Game score
         <p><span id="seconds">00</span>:<span id="tens">00</span></p>
-            </div>
+    </div>
 
 
-    
+
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCIhNShqvPg9wFEHRXYzSmeUs29kpr6MfA",
+            authDomain: "flappy-burd-hscore.firebaseapp.com",
+            databaseURL: "https://flappy-burd-hscore.firebaseio.com",
+            projectId: "flappy-burd-hscore",
+            storageBucket: "flappy-burd-hscore.appspot.com",
+            messagingSenderId: "644577069901"
+        };
+        firebase.initializeApp(config);
+        var db = firebase.firestore();
+
+        var todoCollection = db.collection('Hscore2');
+        //db.collection.get().then(
+        todoCollection.orderBy('PlayerScore', 'desc').limit(10).onSnapshot(
+            function (collectionSnapshot) {
+                let html = '<ul>';
+                collectionSnapshot.forEach(
+                    function (Hscore2Snapshot) {
+                        let Hscore2 = Hscore2Snapshot.data();
+                        html += '<li>' + Hscore2.PlayerName + ' (' + Hscore2.PlayerScore + ')</li>';
+                    });
+                html += '</ul>';
+                document.getElementById('score').innerHTML = html;
+            });
+
+        function setname(inputTag) {
+            let xseconds = seconds;
+            if (seconds < 10) xseconds = '0' + seconds;
+            let xtens = tens;
+            if (tens < 10) xtens = '0' + tens;
+            let Hscore2 = {
+                PlayerName: inputTag.value,
+                PlayerScore: xseconds + ':' + xtens
+            };
+            todoCollection.add(Hscore2);
+        }
+    </script>
+
     <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
     <script language="javascript" src="libraries/p5.dom.js"></script>
     <script language="javascript" type="text/javascript" src="sketchH.js"></script>
     <script language="javascript" type="text/javascript" src="bird.js"></script>
     <script language="javascript" type="text/javascript" src="pipeH.js"></script>
-    
 </body>
 </html>
 
