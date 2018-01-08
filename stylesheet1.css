@@ -35,7 +35,7 @@ div2 {
 }
 
 a {
-    font-family: 'Colonna MT';
+    font-family: 'Trebuchet MS';
     font-size: initial;
     color: darkred;
     font-size: 40px;
@@ -44,12 +44,7 @@ a {
 }
 
 h1 {
-    font-family: 'toxigenesis bd';
+    font-family: 'Trebuchet MS';
     position: absolute;
     height: 100%;
-}
-
-@font-face {
-    font-family: 'toxigenesis bd';
-    src: url('toxigenesis bd.ttf') format('truetype');
 }
